@@ -1,0 +1,214 @@
+[
+  {
+    "id": 1,
+    "title": "晨雾释放",
+    "file": "audio/track01.wav",
+    "cover": "covers/cover01.png",
+    "bpm": 72,
+    "rhythm_type": "渐进铺底 + 拨弦",
+    "stimulation": "低",
+    "timbre": "温暖弦乐铺底",
+    "has_vocal": false,
+    "emotion_tags": [
+      "紧张",
+      "烦躁"
+    ],
+    "scene_tags": [
+      "考试前",
+      "演出前",
+      "通用"
+    ],
+    "stage": "释放",
+    "enabled": true
+  },
+  {
+    "id": 2,
+    "title": "潮汐释放",
+    "file": "audio/track02.wav",
+    "cover": "covers/cover02.png",
+    "bpm": 72,
+    "rhythm_type": "渐进铺底 + 拨弦",
+    "stimulation": "低",
+    "timbre": "温暖弦乐铺底",
+    "has_vocal": false,
+    "emotion_tags": [
+      "烦躁",
+      "紧张"
+    ],
+    "scene_tags": [
+      "独处",
+      "通勤",
+      "通用"
+    ],
+    "stage": "释放",
+    "enabled": true
+  },
+  {
+    "id": 3,
+    "title": "考前稳定",
+    "file": "audio/track03.wav",
+    "cover": "covers/cover03.png",
+    "bpm": 60,
+    "rhythm_type": "柔和低音脉动 + 稀疏拨弦",
+    "stimulation": "低",
+    "timbre": "柔和钢琴感拨弦",
+    "has_vocal": false,
+    "emotion_tags": [
+      "紧张"
+    ],
+    "scene_tags": [
+      "考试前",
+      "演出前"
+    ],
+    "stage": "稳定",
+    "enabled": true
+  },
+  {
+    "id": 4,
+    "title": "学境稳定",
+    "file": "audio/track04.wav",
+    "cover": "covers/cover04.png",
+    "bpm": 60,
+    "rhythm_type": "柔和低音脉动 + 稀疏拨弦",
+    "stimulation": "低",
+    "timbre": "柔和钢琴感拨弦",
+    "has_vocal": false,
+    "emotion_tags": [
+      "难以专注",
+      "紧张"
+    ],
+    "scene_tags": [
+      "学习",
+      "写论文"
+    ],
+    "stage": "稳定",
+    "enabled": true
+  },
+  {
+    "id": 5,
+    "title": "晚风稳定",
+    "file": "audio/track05.wav",
+    "cover": "covers/cover05.png",
+    "bpm": 60,
+    "rhythm_type": "柔和低音脉动 + 稀疏拨弦",
+    "stimulation": "低",
+    "timbre": "柔和钢琴感拨弦",
+    "has_vocal": false,
+    "emotion_tags": [
+      "紧张",
+      "烦躁"
+    ],
+    "scene_tags": [
+      "睡前",
+      "独处",
+      "通用"
+    ],
+    "stage": "稳定",
+    "enabled": true
+  },
+  {
+    "id": 6,
+    "title": "夜海放松",
+    "file": "audio/track06.wav",
+    "cover": "covers/cover06.png",
+    "bpm": 50,
+    "rhythm_type": "极稀疏铺底",
+    "stimulation": "低",
+    "timbre": "空灵泛音",
+    "has_vocal": false,
+    "emotion_tags": [
+      "烦躁",
+      "低落"
+    ],
+    "scene_tags": [
+      "睡前"
+    ],
+    "stage": "放松",
+    "enabled": true
+  },
+  {
+    "id": 7,
+    "title": "云端放松",
+    "file": "audio/track07.wav",
+    "cover": "covers/cover07.png",
+    "bpm": 50,
+    "rhythm_type": "极稀疏铺底",
+    "stimulation": "低",
+    "timbre": "空灵泛音",
+    "has_vocal": false,
+    "emotion_tags": [
+      "烦躁",
+      "疲惫"
+    ],
+    "scene_tags": [
+      "通勤",
+      "独处"
+    ],
+    "stage": "放松",
+    "enabled": true
+  },
+  {
+    "id": 8,
+    "title": "雾屿放松",
+    "file": "audio/track08.wav",
+    "cover": "covers/cover08.png",
+    "bpm": 50,
+    "rhythm_type": "极稀疏铺底",
+    "stimulation": "低",
+    "timbre": "空灵泛音",
+    "has_vocal": false,
+    "emotion_tags": [
+      "低落",
+      "疲惫",
+      "平静"
+    ],
+    "scene_tags": [
+      "通用"
+    ],
+    "stage": "放松",
+    "enabled": true
+  },
+  {
+    "id": 9,
+    "title": "澄澈专注",
+    "file": "audio/track09.wav",
+    "cover": "covers/cover09.png",
+    "bpm": 48,
+    "rhythm_type": "极简铺底 + 高频点缀",
+    "stimulation": "低",
+    "timbre": "极简高频点缀",
+    "has_vocal": false,
+    "emotion_tags": [
+      "难以专注"
+    ],
+    "scene_tags": [
+      "学习",
+      "写论文",
+      "考试前"
+    ],
+    "stage": "专注",
+    "enabled": true
+  },
+  {
+    "id": 10,
+    "title": "微光能量",
+    "file": "audio/track10.wav",
+    "cover": "covers/cover10.png",
+    "bpm": 88,
+    "rhythm_type": "明亮铺底 + 温暖低音脉动",
+    "stimulation": "中低",
+    "timbre": "明亮暖低音",
+    "has_vocal": false,
+    "emotion_tags": [
+      "疲惫",
+      "低落"
+    ],
+    "scene_tags": [
+      "恢复能量",
+      "通用",
+      "通勤"
+    ],
+    "stage": "能量",
+    "enabled": true
+  }
+]

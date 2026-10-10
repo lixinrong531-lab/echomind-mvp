@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EchoMind · 管理后台</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="admin-page">
+
+  <!-- 密钥登录 -->
+  <div class="admin-login" id="login-box">
+    <div class="brand" style="margin-top:0;">ECHOMIND · 管理后台</div>
+    <p class="hint center">请输入管理密钥</p>
+    <input type="password" id="admin-key" placeholder="管理密钥">
+    <button class="btn btn-primary" id="btn-login">进入后台</button>
+    <p class="hint center" id="login-err" style="color:#c0392b;display:none;">密钥不正确，请重试</p>
+  </div>
+
+  <!-- 后台主体 -->
+  <div id="admin-main" style="display:none;">
+    <div class="brand" style="margin-top:0;">ECHOMIND · 管理后台</div>
+
+    <h3 class="section-title">数据总览</h3>
+    <div class="stat-grid" id="stat-cards"></div>
+
+    <h3 class="section-title">情绪分布</h3>
+    <div id="emotion-bars"></div>
+    <h3 class="section-title">场景分布</h3>
+    <div id="scene-bars"></div>
+
+    <h3 class="section-title">分场景使用前后对比（主观强度平均分）</h3>
+    <div class="table-scroll"><table class="data" id="scene-table">
+      <thead><tr><th>场景</th><th>次数</th><th>使用前均分</th><th>使用后均分</th><th>平均变化</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+
+    <h3 class="section-title">分曲目播放统计</h3>
+    <div class="table-scroll"><table class="data" id="track-stat-table">
+      <thead><tr><th>曲目</th><th>阶段</th><th>播放</th><th>播完</th><th>跳过</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+
+    <h3 class="section-title">曲目管理
+      <button class="mini-btn" id="btn-track-add">+ 添加曲目</button>
+    </h3>
+    <div class="table-scroll"><table class="data" id="track-table">
+      <thead><tr><th>ID</th><th>标题</th><th>阶段</th><th>BPM</th><th>刺激度</th><th>场景标签</th><th>启用</th><th>操作</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+
+    <h3 class="section-title">会话明细
+      <button class="mini-btn" id="btn-export">导出 CSV</button>
+    </h3>
+    <div class="table-scroll"><table class="data" id="session-table">
+      <thead><tr><th>开始时间</th><th>情绪</th><th>前/后</th><th>场景</th><th>目标</th><th>时长</th><th>曲目</th><th>打点</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </div>
+
+</div>
+<script src="/static/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<!-- 移动优先：禁止缩放抖动，适配手机浏览器 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>EchoMind · 让每一次情绪波动，都有一首懂你的歌</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ 屏 1：首页 ============ -->
+  <section class="screen active" id="s-home">
+    <div class="brand">ECHOMIND</div>
+    <div class="slogan">
+      让每一次情绪波动，<br>都有一首懂你的歌。
+      <small>告诉 EchoMind 你此刻的情绪与场景<br>生成一段只属于你的音乐调节方案</small>
+    </div>
+    <div class="spacer"></div>
+    <button class="btn btn-primary" id="btn-start">开始一次情绪调节</button>
+    <button class="btn btn-ghost" id="btn-checkin">今天的你，感觉怎么样？</button>
+    <button class="link-back center" id="btn-history" style="text-align:center;width:100%;margin-top:18px;">我的 EchoMind · 历史记录 →</button>
+  </section>
+
+  <!-- ============ 屏 2：情绪输入 ============ -->
+  <section class="screen" id="s-emotion">
+    <button class="link-back" data-back="s-home">← 返回</button>
+    <h2 class="screen-title">你现在感觉怎么样？</h2>
+    <p class="hint">选择最贴近你此刻状态的一个词</p>
+    <div class="chips" id="emotion-chips"></div>
+    <div class="slider-wrap">
+      <div class="slider-value">当前 <span id="emotion-label">紧张</span> 程度：<b id="intensity-val">5</b>/10</div>
+      <input type="range" id="intensity" min="1" max="10" value="5" step="1">
+    </div>
+    <button class="btn btn-primary" id="btn-emotion-next" disabled>下一步</button>
+  </section>
+
+  <!-- ============ 屏 3：场景选择 ============ -->
+  <section class="screen" id="s-scene">
+    <button class="link-back" data-back="s-emotion">← 返回</button>
+    <h2 class="screen-title">你现在在哪里 / 正在做什么？</h2>
+    <p class="hint">同一种情绪，在不同场景下需要的音乐可能不同</p>
+    <div class="chips" id="scene-chips"></div>
+    <button class="btn btn-primary" id="btn-scene-next" disabled>下一步</button>
+  </section>
+
+  <!-- ============ 屏 4：目标状态 ============ -->
+  <section class="screen" id="s-goal">
+    <button class="link-back" data-back="s-scene">← 返回</button>
+    <h2 class="screen-title">你希望接下来变成什么状态？</h2>
+    <p class="hint">EchoMind 会据此生成三段渐进式音乐路径</p>
+    <div class="cards" id="goal-cards"></div>
+    <button class="btn btn-primary" id="btn-goal-next" disabled>生成我的音乐方案</button>
+  </section>
+
+  <!-- ============ 屏 5：生成方案 ============ -->
+  <section class="screen" id="s-plan">
+    <button class="link-back" data-back="s-goal">← 返回重选</button>
+    <h2 class="screen-title">EchoMind 为你生成了一条音乐调节路径</h2>
+    <div class="plan-meta">
+      <div class="row"><span class="k">当前状态</span><span class="v" id="plan-emotion"></span></div>
+      <div class="row"><span class="k">当前场景</span><span class="v" id="plan-scene"></span></div>
+      <div class="row"><span class="k">调节目标</span><span class="v" id="plan-goal"></span></div>
+    </div>
+    <div class="path" id="plan-path"></div>
+    <div class="why"><b>为什么推荐？</b><br><span id="plan-why"></span></div>
+    <p class="disclaimer">以上推荐基于你的主观选择生成，仅供日常自我调节参考，不构成任何医疗建议。</p>
+    <button class="btn btn-primary" id="btn-plan-go">开始聆听</button>
+  </section>
+
+  <!-- ============ 屏 6：播放页 ============ -->
+  <section class="screen" id="s-player">
+    <div class="center"><span class="player-stage" id="player-stage">当前调节阶段：稳定</span></div>
+    <div class="player-goal" id="player-goal">当前目标：从紧张 → 平稳</div>
+    <div class="breath-wrap">
+      <div class="breath-circle"></div>
+      <div class="breath-label" id="breath-label">吸气</div>
+    </div>
+    <img class="cover" id="player-cover" src="" alt="音乐封面">
+    <div class="track-title" id="player-title">—</div>
+    <div class="track-stage-tag" id="player-tag">—</div>
+    <div class="progress-wrap">
+      <div class="progress" id="progress"><div class="fill" id="progress-fill"></div></div>
+      <div class="time-row"><span id="time-cur">0:00</span><span id="time-total">0:00</span></div>
+    </div>
+    <div class="controls">
+      <button class="ctrl-btn" id="btn-prev-stage" title="上一阶段">⏮</button>
+      <button class="ctrl-btn main" id="btn-play">▶</button>
+      <button class="ctrl-btn" id="btn-next" title="下一首">⏭</button>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-ghost" id="btn-player-back">返回方案</button>
+      <button class="btn btn-ghost" id="btn-player-finish">结束本次调节</button>
+    </div>
+  </section>
+
+  <!-- ============ 屏 7：使用后反馈 ============ -->
+  <section class="screen" id="s-feedback">
+    <h2 class="screen-title">现在的你感觉怎么样？</h2>
+    <p class="hint">再次评估一下此刻的 <span id="feedback-emotion">紧张</span> 程度</p>
+    <div class="compare">
+      <div class="box"><div class="lbl">使用前</div><div class="val"><span id="fb-before">8</span><small>/10</small></div></div>
+      <div class="box"><div class="lbl">使用后</div><div class="val"><span id="fb-after-val">5</span><small>/10</small></div></div>
+    </div>
+    <div class="slider-wrap">
+      <div class="slider-value">使用后 <span id="feedback-emotion-2">紧张</span> 程度：<b id="after-val">5</b>/10</div>
+      <input type="range" id="intensity-after" min="1" max="10" value="5" step="1">
+    </div>
+    <button class="btn btn-primary" id="btn-feedback-submit">生成本次记录</button>
+  </section>
+
+  <!-- ============ 屏 8：本次记录 ============ -->
+  <section class="screen" id="s-record">
+    <h2 class="screen-title center">本次调节记录</h2>
+    <div class="record-card">
+      <div class="big" id="record-delta">8 → 5</div>
+      <div class="result-sub" id="record-sub">你的主观紧张程度较使用前降低了 3 级。</div>
+      <div class="rows">
+        <div class="r"><span class="k">情绪</span><span id="record-emotion">紧张</span></div>
+        <div class="r"><span class="k">场景</span><span id="record-scene">考试前</span></div>
+        <div class="r"><span class="k">目标</span><span id="record-goal">平静下来</span></div>
+        <div class="r"><span class="k">使用时长</span><span id="record-duration">—</span></div>
+        <div class="r"><span class="k">聆听曲目</span><span id="record-tracks">—</span></div>
+      </div>
+    </div>
+    <p class="disclaimer center">以上为你的主观感受变化记录，不代表任何医疗效果。</p>
+    <button class="btn btn-primary" id="btn-record-history">查看我的 EchoMind</button>
+    <button class="btn btn-ghost" id="btn-record-home">回到首页</button>
+  </section>
+
+  <!-- ============ 屏 9：历史记录 ============ -->
+  <section class="screen" id="s-history">
+    <button class="link-back" data-back="s-home">← 返回首页</button>
+    <h2 class="screen-title">我的 EchoMind</h2>
+    <p class="hint">你的每一次情绪调节记录</p>
+    <div class="chart-wrap" id="history-chart-wrap">
+      <div class="t">主观强度变化趋势（使用前 → 使用后）</div>
+      <svg id="history-chart" width="100%" height="150" viewBox="0 0 400 150" preserveAspectRatio="none"></svg>
+      <div style="font-size:12px;color:var(--muted);margin-top:6px;">
+        <span style="color:#8f86e0;">●</span> 使用前强度　
+        <span style="color:#544bb8;">●</span> 使用后强度
+      </div>
+    </div>
+    <div id="history-list"></div>
+    <div class="empty" id="history-empty" style="display:none;">还没有记录<br>完成一次情绪调节后，这里会生成你的专属记录</div>
+    <button class="btn btn-primary" id="btn-history-new">开始一次新的调节</button>
+  </section>
+
+</div>
+<script src="/static/app.js"></script>
+</body>
+</html>
